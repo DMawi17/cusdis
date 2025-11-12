@@ -1,3 +1,62 @@
+<script>
+  import { getContext } from 'svelte'
+  import { t } from '../i18n'
+  export let parentId
+
+  // form data
+  let content = ''
+  let nickname = ''
+  let email = ''
+
+  let loading = false
+
+  export let onSuccess
+
+  const api = getContext('api')
+  const setMessage = getContext('setMessage')
+  const { appId, pageId, pageUrl, pageTitle } = getContext('attrs')
+  const refresh = getContext('refresh')
+
+  async function addComment() {
+    if (!content) {
+      alert(t('content_is_required'))
+      return
+    }
+
+    if (!nickname) {
+      alert(t('nickname_is_required'))
+      return
+    }
+
+    try {
+      loading = true
+      const res = await api.post('/api/open/comments', {
+        appId,
+        pageId,
+        content,
+        nickname,
+        email,
+        parentId,
+        pageUrl,
+        pageTitle,
+      })
+      await refresh()
+      teardown()
+      setMessage(t('comment_has_been_sent'))
+    } finally {
+      loading = false
+    }
+  }
+
+  function teardown() {
+    content = ''
+    nickname = ''
+    email = ''
+    onSuccess && onSuccess()
+  }
+
+</script>
+
 <div class="grid grid-cols-1 gap-3">
   <div class="grid grid-cols-2 gap-3">
     <div>
