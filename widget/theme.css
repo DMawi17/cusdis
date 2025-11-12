@@ -1,8 +1,59 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Custom styling for better theme integration */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 blockquote {
   @apply px-4 py-2 bg-gray-100 my-4 dark:bg-gray-900;
+}
+
+/* Form improvements */
+input[type="text"],
+input[type="email"],
+textarea {
+  @apply rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all;
+}
+
+/* Ensure grid works properly */
+.grid-cols-2 {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Button styling */
+button {
+  @apply transition-all hover:opacity-80 rounded-md;
+}
+
+/* Remove scrollbar and fix sizing */
+body {
+  min-height: auto !important;
+  overflow: visible !important;
+}
+
+/* Dark mode improvements */
+.dark input,
+.dark textarea {
+  @apply border-gray-700 focus:border-blue-500;
+}
+
+.dark button {
+  @apply hover:bg-gray-800;
 }
