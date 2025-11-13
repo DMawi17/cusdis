@@ -64,50 +64,49 @@ form {
 /* ============================================
    INPUT FIELDS - NEWSLETTER STYLE
    ============================================ */
-input[type="text"], 
-input[type="email"], 
-textarea {
-  width: 100% !important;
-  height: auto !important;
-  padding: 0.625rem !important;
-  border-radius: 0.5rem !important;
-  border: 1px solid #e5e7eb !important;
-  background-color: #ffffff !important;
-  font-size: 0.875rem !important;
-  transition: all 0.2s ease !important;
-  color: #1e1e2e !important;
-}
-
-textarea {
-  min-height: 7rem !important;
-  resize: vertical !important;
-}
-
-/* Input Focus - Primary Color Ring */
-input[type="text"]:focus, 
-input[type="email"]:focus, 
-textarea:focus {
-  outline: none !important;
-  box-shadow: 0 0 0 2px #DD7F68 !important;
-  border-color: #DD7F68 !important;
-}
-
-/* Dark Mode Inputs */
-.dark input[type="text"], 
-.dark input[type="email"], 
-.dark textarea {
-  background-color: rgba(30, 30, 46, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: #cdd6f4 !important;
-}
-
-.dark input[type="text"]:focus, 
-.dark input[type="email"]:focus, 
-.dark textarea:focus {
-  box-shadow: 0 0 0 2px #89B4FA !important;
-  border-color: #89B4FA !important;
-  background-color: rgba(30, 30, 46, 0.7) !important;
-}
+   input[type="text"], 
+   input[type="email"], 
+   textarea {
+     width: 100% !important;
+     height: auto !important;
+     padding: 0.625rem !important;
+     border-radius: 0.5rem !important;
+     border: 1px solid #89B4FA !important;
+     background-color: #EEE6DD !important;
+     font-size: 0.875rem !important;
+     transition: all 0.2s ease !important;
+     color: #1e1e2e !important;
+   }
+   
+   textarea {
+     min-height: 7rem !important;
+     resize: vertical !important;
+   }
+   
+   /* Input Focus - Primary Color Ring */
+   input[type="text"]:focus, 
+   input[type="email"]:focus, 
+   textarea:focus {
+     outline: none !important;
+     box-shadow: 0 0 0 2px #DD7F68 !important;
+     border-color: #DD7F68 !important;
+   }
+   
+   /* Dark Mode Inputs */
+   .dark input[type="text"], 
+   .dark input[type="email"], 
+   .dark textarea {
+     background-color: #070913 !important;
+     border: 1px solid #89B4FA !important;
+     color: #cdd6f4 !important;
+   }
+   
+   .dark input[type="text"]:focus, 
+   .dark input[type="email"]:focus, 
+   .dark textarea:focus {
+     box-shadow: 0 0 0 2px #89B4FA !important;
+     border-color: #89B4FA !important;
+   }
 
 /* ============================================
    TASK 2: SUBMIT BUTTON - RIGHT ALIGNED + CUSTOM COLORS
