@@ -37,7 +37,7 @@ form {
 }
 
 /* ============================================
-   INPUT FIELDS - NEWSLETTER STYLE
+   INPUT FIELDS - FORCE THEME BACKGROUNDS
    ============================================ */
 input[type="text"], 
 input[type="email"], 
@@ -47,7 +47,7 @@ textarea {
   padding: 0.75rem !important;
   border-radius: 0.5rem !important;
   border: 1px solid #e5e7eb !important;
-  background: #ffffff !important;
+  background-color: #ffffff !important;
   font-size: 0.875rem !important;
   transition: all 0.2s ease !important;
   color: #1e1e2e !important;
@@ -59,7 +59,7 @@ textarea {
   resize: vertical !important;
 }
 
-/* Input Focus - Newsletter Primary Color */
+/* Input Focus */
 input[type="text"]:focus, 
 input[type="email"]:focus, 
 textarea:focus {
@@ -68,11 +68,11 @@ textarea:focus {
   border-color: #DD7F68 !important;
 }
 
-/* Dark Mode Inputs */
+/* DARK MODE - FORCE TRANSPARENT/THEME BACKGROUNDS */
 .dark input[type="text"], 
 .dark input[type="email"], 
 .dark textarea {
-  background: #1e1e2e !important;
+  background-color: rgba(30, 30, 46, 0.5) !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
   color: #cdd6f4 !important;
 }
@@ -82,16 +82,22 @@ textarea:focus {
 .dark textarea:focus {
   box-shadow: 0 0 0 2px #89B4FA !important;
   border-color: #89B4FA !important;
+  background-color: rgba(30, 30, 46, 0.7) !important;
 }
 
 /* ============================================
-   BUTTONS - NEWSLETTER STYLE
+   BUTTONS - SEND BUTTON (ላክ)
    ============================================ */
-button {
+/* Primary submit button - Right aligned & Wider */
+button[type="submit"],
+button.cusdis-submit,
+form > div > button:last-child,
+form button:not([class*="reply"]):not([class*="Reply"]) {
   height: 2.5rem !important;
-  padding: 0 1.5rem !important;
+  min-width: 120px !important;
+  padding: 0 2rem !important;
   border-radius: 0.5rem !important;
-  background: #DD7F68 !important;
+  background-color: #DD7F68 !important;
   color: #ffffff !important;
   font-weight: 500 !important;
   font-size: 0.875rem !important;
@@ -99,125 +105,230 @@ button {
   border: none !important;
   cursor: pointer !important;
   box-shadow: 0 2px 8px rgba(221, 127, 104, 0.25) !important;
+  margin-left: auto !important;
+  display: block !important;
+  float: right !important;
 }
 
-button:hover {
-  background: rgba(221, 127, 104, 0.9) !important;
+button[type="submit"]:hover,
+button.cusdis-submit:hover,
+form > div > button:last-child:hover {
+  background-color: rgba(221, 127, 104, 0.9) !important;
   opacity: 1 !important;
-  transform: translateY(-1px);
+  transform: translateY(-1px) !important;
   box-shadow: 0 4px 12px rgba(221, 127, 104, 0.3) !important;
 }
 
-button:active {
-  transform: translateY(0);
+button[type="submit"]:active,
+button.cusdis-submit:active {
+  transform: translateY(0) !important;
 }
 
-button:disabled {
+button[type="submit"]:disabled,
+button.cusdis-submit:disabled {
   opacity: 0.5 !important;
   cursor: not-allowed !important;
   transform: none !important;
 }
 
-/* Dark Mode Button */
-.dark button {
-  background: #89B4FA !important;
+/* Dark Mode Send Button */
+.dark button[type="submit"],
+.dark button.cusdis-submit,
+.dark form > div > button:last-child {
+  background-color: #89B4FA !important;
   color: #1e1e2e !important;
   box-shadow: 0 2px 8px rgba(137, 180, 250, 0.25) !important;
 }
 
-.dark button:hover {
-  background: rgba(137, 180, 250, 0.9) !important;
+.dark button[type="submit"]:hover,
+.dark button.cusdis-submit:hover,
+.dark form > div > button:last-child:hover {
+  background-color: rgba(137, 180, 250, 0.9) !important;
   box-shadow: 0 4px 12px rgba(137, 180, 250, 0.3) !important;
+}
+
+/* Clear floats after button */
+form > div:has(button[type="submit"])::after,
+form::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ============================================
+   REPLY BUTTON (መልስ) - TEXT LINK STYLE
+   ============================================ */
+/* Reply buttons - styled as text links, NOT box buttons */
+button[class*="reply"],
+button[class*="Reply"],
+.reply-btn,
+.cusdis-reply-btn,
+button:not([type="submit"]):not(.cusdis-submit) {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  height: auto !important;
+  padding: 0.25rem 0 !important;
+  margin-top: 0.75rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+  color: #DD7F68 !important;
+  text-decoration: underline !important;
+  cursor: pointer !important;
+  display: inline !important;
+  float: none !important;
+  min-width: auto !important;
+}
+
+button[class*="reply"]:hover,
+button[class*="Reply"]:hover,
+.reply-btn:hover,
+button:not([type="submit"]):not(.cusdis-submit):hover {
+  color: rgba(221, 127, 104, 0.8) !important;
+  background: none !important;
+  background-color: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
+  opacity: 0.8 !important;
+}
+
+.dark button[class*="reply"],
+.dark button[class*="Reply"],
+.dark .reply-btn,
+.dark button:not([type="submit"]):not(.cusdis-submit) {
+  color: #89B4FA !important;
+}
+
+.dark button[class*="reply"]:hover,
+.dark button[class*="Reply"]:hover,
+.dark .reply-btn:hover,
+.dark button:not([type="submit"]):not(.cusdis-submit):hover {
+  color: rgba(137, 180, 250, 0.8) !important;
 }
 
 /* ============================================
    COMMENT LAYOUT & SPACING
    ============================================ */
 
-/* Comment List Container */
-.cusdis-comment-list,
-[class*="comment-list"] {
-  margin-top: 1.5rem;
+/* Comment List */
+.comment-list,
+[class*="comment-list"],
+div[class*="comments"] {
+  margin-top: 1.5rem !important;
 }
 
-/* Individual Comment Item */
-.cusdis-comment-item,
+/* Individual Comment - FORCE SEPARATOR */
+.comment,
+.comment-item,
 [class*="comment-item"],
-.comment {
-  padding: 1.5rem 0 !important;
+div[class*="comment"]:not([class*="list"]):not([class*="form"]) {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
   margin-bottom: 0 !important;
   border-bottom: 1px solid #e5e7eb !important;
+  position: relative !important;
 }
 
-.dark .cusdis-comment-item,
+.dark .comment,
+.dark .comment-item,
 .dark [class*="comment-item"],
-.dark .comment {
-  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+.dark div[class*="comment"]:not([class*="list"]):not([class*="form"]) {
+  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* First Comment */
-.cusdis-comment-item:first-child,
-[class*="comment-item"]:first-child,
-.comment:first-child {
+/* First comment */
+.comment:first-child,
+.comment-item:first-child,
+[class*="comment-item"]:first-child {
   padding-top: 0.5rem !important;
 }
 
-/* Last Comment - Remove Bottom Border */
-.cusdis-comment-item:last-child,
-[class*="comment-item"]:last-child,
-.comment:last-child {
-  border-bottom: none !important;
+/* Last comment - keep border for consistency */
+.comment:last-child,
+.comment-item:last-child,
+[class*="comment-item"]:last-child {
   padding-bottom: 0.5rem !important;
 }
 
-/* Comment Header (Author + Date) */
-.cusdis-comment-header,
+/* Additional separator enforcement */
+.comment::after,
+.comment-item::after,
+[class*="comment-item"]::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background: #e5e7eb !important;
+}
+
+.dark .comment::after,
+.dark .comment-item::after,
+.dark [class*="comment-item"]::after {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Last item - remove double border */
+.comment:last-child::after,
+.comment-item:last-child::after,
+[class*="comment-item"]:last-child::after {
+  display: none !important;
+}
+
+/* Comment Header */
+.comment-header,
 [class*="comment-header"] {
   margin-bottom: 0.75rem !important;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
 }
 
 /* Author Name */
-.cusdis-comment-author,
-[class*="comment-author"],
-.comment-author {
+.comment-author,
+[class*="author"],
+.nickname {
   font-weight: 600 !important;
   font-size: 0.9375rem !important;
   color: #1e1e2e !important;
-  margin-bottom: 0.25rem !important;
 }
 
-.dark .cusdis-comment-author,
-.dark [class*="comment-author"],
-.dark .comment-author {
+.dark .comment-author,
+.dark [class*="author"],
+.dark .nickname {
   color: #cdd6f4 !important;
 }
 
-/* Comment Date/Time */
-.cusdis-comment-date,
-.cusdis-comment-time,
-[class*="comment-date"],
-[class*="comment-time"] {
+/* DATE - MUTED/LIGHTER COLOR */
+.comment-date,
+.comment-time,
+[class*="date"],
+[class*="time"],
+.created-at,
+time {
   font-size: 0.8125rem !important;
-  color: #6c7086 !important;
-  margin-top: 0.25rem !important;
-  margin-bottom: 0.5rem !important;
+  color: #9ca3af !important;
+  font-weight: 400 !important;
+  opacity: 0.7 !important;
 }
 
-.dark .cusdis-comment-date,
-.dark .cusdis-comment-time,
-.dark [class*="comment-date"],
-.dark [class*="comment-time"] {
-  color: #a6adc8 !important;
+.dark .comment-date,
+.dark .comment-time,
+.dark [class*="date"],
+.dark [class*="time"],
+.dark .created-at,
+.dark time {
+  color: #6b7280 !important;
+  opacity: 0.6 !important;
 }
 
-/* Comment Content/Body */
-.cusdis-comment-content,
-.cusdis-comment-body,
-[class*="comment-content"],
-[class*="comment-body"] {
+/* Comment Content */
+.comment-content,
+.comment-body,
+[class*="content"],
+[class*="body"]:not(body) {
   margin-top: 0.75rem !important;
   margin-bottom: 0.75rem !important;
   line-height: 1.7 !important;
@@ -225,56 +336,15 @@ button:disabled {
   font-size: 0.9375rem !important;
 }
 
-.dark .cusdis-comment-content,
-.dark .cusdis-comment-body,
-.dark [class*="comment-content"],
-.dark [class*="comment-body"] {
+.dark .comment-content,
+.dark .comment-body,
+.dark [class*="content"],
+.dark [class*="body"]:not(body) {
   color: #cdd6f4 !important;
 }
 
-/* Reply Button/Link */
-.cusdis-comment-reply,
-.cusdis-reply-btn,
-[class*="reply"],
-button[class*="reply"] {
-  margin-top: 0.75rem !important;
-  padding-top: 0.5rem !important;
-  font-size: 0.875rem !important;
-  color: #DD7F68 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  height: auto !important;
-  padding: 0.5rem 0 !important;
-  font-weight: 400 !important;
-  text-decoration: underline;
-}
-
-.cusdis-comment-reply:hover,
-.cusdis-reply-btn:hover,
-[class*="reply"]:hover,
-button[class*="reply"]:hover {
-  color: rgba(221, 127, 104, 0.8) !important;
-  background: transparent !important;
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-.dark .cusdis-comment-reply,
-.dark .cusdis-reply-btn,
-.dark [class*="reply"],
-.dark button[class*="reply"] {
-  color: #89B4FA !important;
-}
-
-.dark .cusdis-comment-reply:hover,
-.dark .cusdis-reply-btn:hover,
-.dark [class*="reply"]:hover,
-.dark button[class*="reply"]:hover {
-  color: rgba(137, 180, 250, 0.8) !important;
-}
-
 /* Nested Replies */
-.cusdis-comment-replies,
+.replies,
 [class*="replies"] {
   margin-top: 1rem !important;
   margin-left: 2rem !important;
@@ -282,7 +352,7 @@ button[class*="reply"]:hover {
   border-left: 2px solid #e5e7eb !important;
 }
 
-.dark .cusdis-comment-replies,
+.dark .replies,
 .dark [class*="replies"] {
   border-left-color: rgba(255, 255, 255, 0.1) !important;
 }
@@ -292,69 +362,91 @@ button[class*="reply"]:hover {
    ============================================ */
 
 /* Moderator Badge */
-.cusdis-mod-badge,
-[class*="mod-badge"] {
-  display: inline-block;
-  padding: 0.125rem 0.5rem;
-  background: #DD7F68;
-  color: white;
-  font-size: 0.75rem;
-  border-radius: 0.25rem;
-  margin-left: 0.5rem;
-  font-weight: 500;
+.mod-badge,
+[class*="mod"],
+.admin-badge {
+  display: inline-block !important;
+  padding: 0.125rem 0.5rem !important;
+  background-color: #DD7F68 !important;
+  color: white !important;
+  font-size: 0.75rem !important;
+  border-radius: 0.25rem !important;
+  margin-left: 0.5rem !important;
+  font-weight: 500 !important;
 }
 
-.dark .cusdis-mod-badge,
-.dark [class*="mod-badge"] {
-  background: #89B4FA;
-  color: #1e1e2e;
+.dark .mod-badge,
+.dark [class*="mod"],
+.dark .admin-badge {
+  background-color: #89B4FA !important;
+  color: #1e1e2e !important;
 }
 
 /* Loading State */
-.cusdis-loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  color: #6c7086;
+.loading,
+[class*="loading"] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 2rem !important;
+  color: #6c7086 !important;
 }
 
-.dark .cusdis-loading {
-  color: #a6adc8;
+.dark .loading,
+.dark [class*="loading"] {
+  color: #a6adc8 !important;
 }
 
 /* Error Message */
-.cusdis-error {
-  padding: 1rem;
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  color: #dc2626;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
+.error,
+[class*="error"] {
+  padding: 1rem !important;
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  color: #dc2626 !important;
+  border-radius: 0.5rem !important;
+  margin-bottom: 1rem !important;
 }
 
-.dark .cusdis-error {
-  background: rgba(239, 68, 68, 0.15);
-  border-color: rgba(239, 68, 68, 0.4);
-  color: #f87171;
+.dark .error,
+.dark [class*="error"] {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  color: #f87171 !important;
 }
 
 /* Labels */
 label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #1e1e2e;
+  display: block !important;
+  margin-bottom: 0.5rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  color: #1e1e2e !important;
 }
 
 .dark label {
-  color: #cdd6f4;
+  color: #cdd6f4 !important;
 }
 
 /* Body Adjustments */
 body { 
   min-height: auto !important; 
   overflow: visible !important; 
-  padding: 5px; 
+  padding: 5px !important;
+  background-color: transparent !important;
+}
+
+html {
+  background-color: transparent !important;
+}
+
+/* Container - Force theme background */
+.container,
+[class*="container"]:not(.cusdis-container) {
+  background-color: transparent !important;
+}
+
+.dark .container,
+.dark [class*="container"]:not(.cusdis-container) {
+  background-color: transparent !important;
 }
