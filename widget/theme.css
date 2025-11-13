@@ -6,6 +6,17 @@
 body, html { margin: 0; padding: 0; overflow-x: hidden; }
 blockquote { @apply px-4 py-2 bg-gray-100 my-4 dark:bg-gray-900; }
 
+/* Remove scrollbars from Cusdis containers */
+#cusdis_thread,
+.cusdis,
+.cusdis-container,
+[id*="cusdis"],
+[class*="cusdis"] {
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
 /* ============================================
    GRID & MOBILE LOGIC (PRESERVED)
    ============================================ */
@@ -38,6 +49,11 @@ body, html {
 #cusdis_thread,
 .cusdis,
 .cusdis-container,
+.cusdis-iframe,
+.cusdis-wrapper,
+div[id*="cusdis"],
+div[class*="cusdis"]:not(.dark *),
+iframe[id*="cusdis"],
 [id*="cusdis"],
 [class*="cusdis"]:not(.dark *) {
   background-color: #EDDFD6 !important;
@@ -52,6 +68,11 @@ body, html {
 .dark #cusdis_thread,
 .dark .cusdis,
 .dark .cusdis-container,
+.dark .cusdis-iframe,
+.dark .cusdis-wrapper,
+.dark div[id*="cusdis"],
+.dark div[class*="cusdis"],
+.dark iframe[id*="cusdis"],
 .dark [id*="cusdis"],
 .dark [class*="cusdis"] {
   background-color: #0F1526 !important;
@@ -69,7 +90,7 @@ form {
 }
 
 .dark form {
-  background: linear-gradient(135deg, rgba(137, 180, 250, 0.03) 0%, rgba(137, 180, 250, 0.08) 100%) !important;
+  background: linear-gradient(135deg, rgba(15, 21, 38, 0.5) 0%, rgba(15, 21, 38, 0.8) 100%) !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
@@ -238,14 +259,14 @@ button[type="button"]:hover,
 .my-4 {
   padding-top: 1.5rem !important;
   padding-bottom: 1.5rem !important;
-  border-bottom: 1px solid #e5e7eb !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
   margin-bottom: 0 !important;
   margin-top: 0 !important;
 }
 
 /* Dark mode separator */
 .dark .my-4 {
-  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 /* First comment - reduce top padding */
