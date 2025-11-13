@@ -6,17 +6,6 @@
 body, html { margin: 0; padding: 0; overflow-x: hidden; }
 blockquote { @apply px-4 py-2 bg-gray-100 my-4 dark:bg-gray-900; }
 
-/* Remove scrollbars from Cusdis containers */
-#cusdis_thread,
-.cusdis,
-.cusdis-container,
-[id*="cusdis"],
-[class*="cusdis"] {
-  overflow: visible !important;
-  max-height: none !important;
-  height: auto !important;
-}
-
 /* ============================================
    GRID & MOBILE LOGIC (PRESERVED)
    ============================================ */
@@ -32,50 +21,28 @@ blockquote { @apply px-4 py-2 bg-gray-100 my-4 dark:bg-gray-900; }
 }
 
 /* ============================================
-   TASK 1: BODY & CONTAINER - MATCH NEWSLETTER BACKGROUND
+   TASK 1: BODY & CONTAINER - TRANSPARENT BACKGROUND
    ============================================ */
 body { 
   min-height: auto !important; 
   overflow: visible !important; 
   padding: 5px !important;
+  background-color: transparent !important;
 }
 
-/* Light mode - Match the beige/tan newsletter background */
+html {
+  background-color: transparent !important;
+}
+
+/* Light mode - TRANSPARENT */
 body, html {
-  background-color: #EDDFD6 !important;
+  background-color: transparent !important;
 }
 
-/* Ensure all comment containers match newsletter background in light mode */
-#cusdis_thread,
-.cusdis,
-.cusdis-container,
-.cusdis-iframe,
-.cusdis-wrapper,
-div[id*="cusdis"],
-div[class*="cusdis"]:not(.dark *),
-iframe[id*="cusdis"],
-[id*="cusdis"],
-[class*="cusdis"]:not(.dark *) {
-  background-color: #EDDFD6 !important;
-}
-
-/* Dark mode - Dark background */
+/* Dark mode - TRANSPARENT */
 .dark body,
 .dark html {
-  background-color: #0F1526 !important;
-}
-
-.dark #cusdis_thread,
-.dark .cusdis,
-.dark .cusdis-container,
-.dark .cusdis-iframe,
-.dark .cusdis-wrapper,
-.dark div[id*="cusdis"],
-.dark div[class*="cusdis"],
-.dark iframe[id*="cusdis"],
-.dark [id*="cusdis"],
-.dark [class*="cusdis"] {
-  background-color: #0F1526 !important;
+  background-color: transparent !important;
 }
 
 /* ============================================
@@ -90,7 +57,7 @@ form {
 }
 
 .dark form {
-  background: linear-gradient(135deg, rgba(15, 21, 38, 0.5) 0%, rgba(15, 21, 38, 0.8) 100%) !important;
+  background: linear-gradient(135deg, rgba(137, 180, 250, 0.03) 0%, rgba(137, 180, 250, 0.08) 100%) !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
@@ -104,8 +71,8 @@ textarea {
   height: auto !important;
   padding: 0.625rem !important;
   border-radius: 0.5rem !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  background-color: #EEE6DD !important;
+  border: 1px solid #e5e7eb !important;
+  background-color: #ffffff !important;
   font-size: 0.875rem !important;
   transition: all 0.2s ease !important;
   color: #1e1e2e !important;
@@ -129,8 +96,8 @@ textarea:focus {
 .dark input[type="text"], 
 .dark input[type="email"], 
 .dark textarea {
-  background-color: #070913 !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(30, 30, 46, 0.5) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
   color: #cdd6f4 !important;
 }
 
@@ -139,6 +106,7 @@ textarea:focus {
 .dark textarea:focus {
   box-shadow: 0 0 0 2px #89B4FA !important;
   border-color: #89B4FA !important;
+  background-color: rgba(30, 30, 46, 0.7) !important;
 }
 
 /* ============================================
@@ -259,14 +227,14 @@ button[type="button"]:hover,
 .my-4 {
   padding-top: 1.5rem !important;
   padding-bottom: 1.5rem !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-bottom: 1px solid #e5e7eb !important;
   margin-bottom: 0 !important;
   margin-top: 0 !important;
 }
 
 /* Dark mode separator */
 .dark .my-4 {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
 }
 
 /* First comment - reduce top padding */
@@ -366,6 +334,39 @@ label {
 .dark .border-l-2.border-color-gray-200,
 .dark .border-l-2 {
   border-left-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ============================================
+   TASK 3: STATUS MESSAGE COLOR FIX
+   ============================================ */
+/* Target success/pending messages - "Wait for approval" etc */
+.cusdis-message,
+.message,
+[class*="message"],
+div[class*="success"],
+div[class*="pending"],
+div[class*="status"] {
+  color: #57949F !important;
+}
+
+/* Additional targeting for text color classes that might be blue */
+.text-blue-500,
+.text-blue-600,
+.text-blue-700 {
+  color: #57949F !important;
+}
+
+/* Dark mode status messages */
+.dark .cusdis-message,
+.dark .message,
+.dark [class*="message"],
+.dark div[class*="success"],
+.dark div[class*="pending"],
+.dark div[class*="status"],
+.dark .text-blue-500,
+.dark .text-blue-600,
+.dark .text-blue-700 {
+  color: #57949F !important;
 }
 
 /* ============================================
