@@ -21,28 +21,40 @@ blockquote { @apply px-4 py-2 bg-gray-100 my-4 dark:bg-gray-900; }
 }
 
 /* ============================================
-   TASK 1: BODY & CONTAINER - TRANSPARENT BACKGROUND
+   TASK 1: BODY & CONTAINER - MATCH NEWSLETTER BACKGROUND
    ============================================ */
 body { 
   min-height: auto !important; 
   overflow: visible !important; 
   padding: 5px !important;
-  background-color: transparent !important;
 }
 
-html {
-  background-color: transparent !important;
-}
-
-/* Light mode - TRANSPARENT */
+/* Light mode - Match the beige/tan newsletter background */
 body, html {
-  background-color: transparent !important;
+  background-color: #EDE3DB !important;
 }
 
-/* Dark mode - TRANSPARENT */
+/* Ensure all comment containers match newsletter background in light mode */
+#cusdis_thread,
+.cusdis,
+.cusdis-container,
+[id*="cusdis"],
+[class*="cusdis"] {
+  background-color: #EDE3DB !important;
+}
+
+/* Dark mode - Dark background like the screenshot */
 .dark body,
 .dark html {
-  background-color: transparent !important;
+  background-color: #1a1a1a !important;
+}
+
+.dark #cusdis_thread,
+.dark .cusdis,
+.dark .cusdis-container,
+.dark [id*="cusdis"],
+.dark [class*="cusdis"] {
+  background-color: #1a1a1a !important;
 }
 
 /* ============================================
@@ -337,34 +349,45 @@ label {
 }
 
 /* ============================================
-   TASK 3: STATUS MESSAGE COLOR FIX
+   TASK 3: STATUS MESSAGE - MATCH NEWSLETTER BOX STYLE
    ============================================ */
-/* Target success/pending messages - "Wait for approval" etc */
-.cusdis-message,
-.message,
-[class*="message"],
-div[class*="success"],
-div[class*="pending"],
-div[class*="status"] {
+/* Target the blue approval message and style it like newsletter box */
+.bg-blue-500,
+.bg-blue-600,
+.bg-blue-700,
+div.bg-blue-500,
+div.bg-blue-600,
+[class*="bg-blue"] {
+  background: linear-gradient(135deg, rgba(221, 127, 104, 0.08) 0%, rgba(221, 127, 104, 0.12) 100%) !important;
+  border: 1px solid rgba(221, 127, 104, 0.3) !important;
+  border-left: 4px solid #DD7F68 !important;
   color: #57949F !important;
+  padding: 1rem 1.25rem !important;
+  border-radius: 0.5rem !important;
 }
 
-/* Additional targeting for text color classes that might be blue */
+/* Text color for status messages */
 .text-blue-500,
 .text-blue-600,
 .text-blue-700 {
   color: #57949F !important;
 }
 
-/* Dark mode status messages */
-.dark .cusdis-message,
-.dark .message,
-.dark [class*="message"],
-.dark div[class*="success"],
-.dark div[class*="pending"],
-.dark div[class*="status"],
+/* Dark mode - match newsletter box dark style */
+.dark .bg-blue-500,
+.dark .bg-blue-600,
+.dark .bg-blue-700,
+.dark div.bg-blue-500,
+.dark div.bg-blue-600,
+.dark [class*="bg-blue"] {
+  background: linear-gradient(135deg, rgba(137, 180, 250, 0.05) 0%, rgba(137, 180, 250, 0.1) 100%) !important;
+  border: 1px solid rgba(137, 180, 250, 0.2) !important;
+  border-left: 4px solid #89B4FA !important;
+  color: #89B4FA !important;
+}
+
 .dark .text-blue-500,
 .dark .text-blue-600,
 .dark .text-blue-700 {
-  color: #57949F !important;
+  color: #89B4FA !important;
 }
