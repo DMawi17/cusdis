@@ -195,7 +195,7 @@ button[type="button"],
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   color: #DD7F68 !important;
-  text-decoration: underline !important;
+  text-decoration: none !important;
   cursor: pointer !important;
   display: inline !important;
   float: none !important;
@@ -204,9 +204,9 @@ button[type="button"],
 
 button[type="button"]:hover,
 .reply-button:hover {
-  color: rgba(221, 127, 104, 0.8) !important;
+  color: #C96D58 !important;
   background: none !important;
-  opacity: 0.8 !important;
+  opacity: 1 !important;
 }
 
 .dark button[type="button"],
@@ -216,7 +216,7 @@ button[type="button"]:hover,
 
 .dark button[type="button"]:hover,
 .dark .reply-button:hover {
-  color: rgba(137, 180, 250, 0.8) !important;
+  color: #7AA3E8 !important;
 }
 
 /* ============================================
@@ -421,4 +421,16 @@ div.bg-blue-600,
   overflow: visible !important;
   max-height: none !important;
   height: auto !important;
+}
+
+/* input[type="text"], 
+input[type="email"], 
+textarea {
+  background-color: #EEE6DD !important;
+} */
+
+.dark input[type="text"], 
+.dark input[type="email"], 
+.dark textarea {
+  background-color: #070913 !important;
 }
