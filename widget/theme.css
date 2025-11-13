@@ -412,3 +412,13 @@ div.bg-blue-600,
 .dark .text-blue-700 {
   color: #89B4FA !important;
 }
+
+#cusdis_thread,
+.cusdis,
+.cusdis-container,
+[id*="cusdis"]:not(iframe),
+[class*="cusdis"]:not(iframe) {
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+}
