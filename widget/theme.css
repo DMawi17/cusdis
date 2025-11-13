@@ -31,7 +31,7 @@ body {
 
 /* Light mode - Match the beige/tan newsletter background */
 body, html {
-  background-color: #EDDFD5 !important;
+  background-color: #EDDFD6 !important;
 }
 
 /* Ensure all comment containers match newsletter background in light mode */
@@ -40,13 +40,13 @@ body, html {
 .cusdis-container,
 [id*="cusdis"],
 [class*="cusdis"]:not(.dark *) {
-  background-color: #EDDFD5 !important;
+  background-color: #EDDFD6 !important;
 }
 
-/* Dark mode - Dark background like the screenshot */
+/* Dark mode - Dark background */
 .dark body,
 .dark html {
-  background-color: #1a1a1a !important;
+  background-color: #0F1526 !important;
 }
 
 .dark #cusdis_thread,
@@ -54,7 +54,7 @@ body, html {
 .dark .cusdis-container,
 .dark [id*="cusdis"],
 .dark [class*="cusdis"] {
-  background-color: #1a1a1a !important;
+  background-color: #0F1526 !important;
 }
 
 /* ============================================
@@ -83,7 +83,7 @@ textarea {
   height: auto !important;
   padding: 0.625rem !important;
   border-radius: 0.5rem !important;
-  border: 1px solid #e5e7eb !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
   background-color: #EEE6DD !important;
   font-size: 0.875rem !important;
   transition: all 0.2s ease !important;
@@ -108,8 +108,8 @@ textarea:focus {
 .dark input[type="text"], 
 .dark input[type="email"], 
 .dark textarea {
-  background-color: rgba(30, 30, 46, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: #070913 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   color: #cdd6f4 !important;
 }
 
@@ -118,7 +118,6 @@ textarea:focus {
 .dark textarea:focus {
   box-shadow: 0 0 0 2px #89B4FA !important;
   border-color: #89B4FA !important;
-  background-color: rgba(30, 30, 46, 0.7) !important;
 }
 
 /* ============================================
