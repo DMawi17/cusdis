@@ -31,7 +31,7 @@ body {
 
 /* Light mode - Match the beige/tan newsletter background */
 body, html {
-  background-color: #EDE3DB !important;
+  background-color: #EDDFD5 !important;
 }
 
 /* Ensure all comment containers match newsletter background in light mode */
@@ -39,8 +39,8 @@ body, html {
 .cusdis,
 .cusdis-container,
 [id*="cusdis"],
-[class*="cusdis"] {
-  background-color: #EDE3DB !important;
+[class*="cusdis"]:not(.dark *) {
+  background-color: #EDDFD5 !important;
 }
 
 /* Dark mode - Dark background like the screenshot */
@@ -84,7 +84,7 @@ textarea {
   padding: 0.625rem !important;
   border-radius: 0.5rem !important;
   border: 1px solid #e5e7eb !important;
-  background-color: #ffffff !important;
+  background-color: #EEE6DD !important;
   font-size: 0.875rem !important;
   transition: all 0.2s ease !important;
   color: #1e1e2e !important;
