@@ -21,6 +21,31 @@ blockquote { @apply px-4 py-2 bg-gray-100 my-4 dark:bg-gray-900; }
 }
 
 /* ============================================
+   BODY & CONTAINER - THEME BACKGROUNDS
+   ============================================ */
+body { 
+  min-height: auto !important; 
+  overflow: visible !important; 
+  padding: 5px !important;
+  background-color: transparent !important;
+}
+
+html {
+  background-color: transparent !important;
+}
+
+/* Light mode - match site background */
+body, html {
+  background-color: #ffffff !important;
+}
+
+/* Dark mode - transparent to inherit */
+.dark body,
+.dark html {
+  background-color: transparent !important;
+}
+
+/* ============================================
    FORM CONTAINER - NEWSLETTER STYLE
    ============================================ */
 form {
@@ -37,14 +62,14 @@ form {
 }
 
 /* ============================================
-   INPUT FIELDS - FORCE THEME BACKGROUNDS
+   INPUT FIELDS - NEWSLETTER STYLE
    ============================================ */
 input[type="text"], 
 input[type="email"], 
 textarea {
   width: 100% !important;
-  height: 3rem !important;
-  padding: 0.75rem !important;
+  height: auto !important;
+  padding: 0.625rem !important;
   border-radius: 0.5rem !important;
   border: 1px solid #e5e7eb !important;
   background-color: #ffffff !important;
@@ -54,12 +79,11 @@ textarea {
 }
 
 textarea {
-  min-height: 6rem !important;
-  height: auto !important;
+  min-height: 7rem !important;
   resize: vertical !important;
 }
 
-/* Input Focus */
+/* Input Focus - Primary Color Ring */
 input[type="text"]:focus, 
 input[type="email"]:focus, 
 textarea:focus {
@@ -68,7 +92,7 @@ textarea:focus {
   border-color: #DD7F68 !important;
 }
 
-/* DARK MODE - FORCE TRANSPARENT/THEME BACKGROUNDS */
+/* Dark Mode Inputs */
 .dark input[type="text"], 
 .dark input[type="email"], 
 .dark textarea {
@@ -86,69 +110,57 @@ textarea:focus {
 }
 
 /* ============================================
-   BUTTONS - SEND BUTTON (ላክ)
+   SUBMIT BUTTON - "READ MORE" STYLE
    ============================================ */
-/* Primary submit button - Right aligned & Wider */
+/* Primary submit button - Match "ተጨማሪ ያንብቡ" button */
 button[type="submit"],
-button.cusdis-submit,
-form > div > button:last-child,
-form button:not([class*="reply"]):not([class*="Reply"]) {
-  height: 2.5rem !important;
-  min-width: 120px !important;
-  padding: 0 2rem !important;
+form button:not([type="button"]) {
+  display: inline-flex !important;
+  height: 2.75rem !important;
+  align-items: center !important;
+  justify-content: center !important;
   border-radius: 0.5rem !important;
   background-color: #DD7F68 !important;
-  color: #ffffff !important;
-  font-weight: 500 !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
   font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  color: #ffffff !important;
   transition: all 0.2s ease !important;
   border: none !important;
   cursor: pointer !important;
-  box-shadow: 0 2px 8px rgba(221, 127, 104, 0.25) !important;
+  box-shadow: 0 10px 15px -3px rgba(221, 127, 104, 0.25), 0 4px 6px -4px rgba(221, 127, 104, 0.25) !important;
   margin-left: auto !important;
-  display: block !important;
   float: right !important;
 }
 
 button[type="submit"]:hover,
-button.cusdis-submit:hover,
-form > div > button:last-child:hover {
+form button:not([type="button"]):hover {
   background-color: rgba(221, 127, 104, 0.9) !important;
   opacity: 1 !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 4px 12px rgba(221, 127, 104, 0.3) !important;
-}
-
-button[type="submit"]:active,
-button.cusdis-submit:active {
-  transform: translateY(0) !important;
 }
 
 button[type="submit"]:disabled,
-button.cusdis-submit:disabled {
-  opacity: 0.5 !important;
+form button:not([type="button"]):disabled {
+  opacity: 0.6 !important;
   cursor: not-allowed !important;
-  transform: none !important;
 }
 
-/* Dark Mode Send Button */
+/* Dark Mode Submit Button */
 .dark button[type="submit"],
-.dark button.cusdis-submit,
-.dark form > div > button:last-child {
+.dark form button:not([type="button"]) {
   background-color: #89B4FA !important;
   color: #1e1e2e !important;
-  box-shadow: 0 2px 8px rgba(137, 180, 250, 0.25) !important;
+  box-shadow: 0 10px 15px -3px rgba(137, 180, 250, 0.25), 0 4px 6px -4px rgba(137, 180, 250, 0.25) !important;
 }
 
 .dark button[type="submit"]:hover,
-.dark button.cusdis-submit:hover,
-.dark form > div > button:last-child:hover {
+.dark form button:not([type="button"]):hover {
   background-color: rgba(137, 180, 250, 0.9) !important;
-  box-shadow: 0 4px 12px rgba(137, 180, 250, 0.3) !important;
 }
 
-/* Clear floats after button */
-form > div:has(button[type="submit"])::after,
+/* Clear float after button */
+form > div:last-child::after,
 form::after {
   content: "";
   display: table;
@@ -158,12 +170,9 @@ form::after {
 /* ============================================
    REPLY BUTTON (መልስ) - TEXT LINK STYLE
    ============================================ */
-/* Reply buttons - styled as text links, NOT box buttons */
-button[class*="reply"],
-button[class*="Reply"],
-.reply-btn,
-.cusdis-reply-btn,
-button:not([type="submit"]):not(.cusdis-submit) {
+/* Reply buttons - keep as text links */
+button[type="button"],
+.reply-button {
   background: none !important;
   background-color: transparent !important;
   border: none !important;
@@ -172,253 +181,109 @@ button:not([type="submit"]):not(.cusdis-submit) {
   padding: 0.25rem 0 !important;
   margin-top: 0.75rem !important;
   font-size: 0.875rem !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   color: #DD7F68 !important;
   text-decoration: underline !important;
   cursor: pointer !important;
   display: inline !important;
   float: none !important;
-  min-width: auto !important;
+  transition: color 0.2s ease !important;
 }
 
-button[class*="reply"]:hover,
-button[class*="Reply"]:hover,
-.reply-btn:hover,
-button:not([type="submit"]):not(.cusdis-submit):hover {
+button[type="button"]:hover,
+.reply-button:hover {
   color: rgba(221, 127, 104, 0.8) !important;
   background: none !important;
-  background-color: transparent !important;
-  transform: none !important;
-  box-shadow: none !important;
   opacity: 0.8 !important;
 }
 
-.dark button[class*="reply"],
-.dark button[class*="Reply"],
-.dark .reply-btn,
-.dark button:not([type="submit"]):not(.cusdis-submit) {
+.dark button[type="button"],
+.dark .reply-button {
   color: #89B4FA !important;
 }
 
-.dark button[class*="reply"]:hover,
-.dark button[class*="Reply"]:hover,
-.dark .reply-btn:hover,
-.dark button:not([type="submit"]):not(.cusdis-submit):hover {
+.dark button[type="button"]:hover,
+.dark .reply-button:hover {
   color: rgba(137, 180, 250, 0.8) !important;
 }
 
 /* ============================================
-   COMMENT LAYOUT & SPACING
+   COMMENT SEPARATORS - FORCE VISIBLE BORDERS
    ============================================ */
 
-/* Comment List */
-.comment-list,
-[class*="comment-list"],
-div[class*="comments"] {
-  margin-top: 1.5rem !important;
-}
-
-/* Individual Comment - FORCE SEPARATOR */
-.comment,
-.comment-item,
-[class*="comment-item"],
-div[class*="comment"]:not([class*="list"]):not([class*="form"]) {
+/* Target the main comment container - add bottom border */
+.my-4 {
   padding-top: 1.5rem !important;
   padding-bottom: 1.5rem !important;
-  margin-bottom: 0 !important;
   border-bottom: 1px solid #e5e7eb !important;
-  position: relative !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
 }
 
-.dark .comment,
-.dark .comment-item,
-.dark [class*="comment-item"],
-.dark div[class*="comment"]:not([class*="list"]):not([class*="form"]) {
+/* Dark mode separator */
+.dark .my-4 {
   border-bottom-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* First comment */
-.comment:first-child,
-.comment-item:first-child,
-[class*="comment-item"]:first-child {
+/* First comment - reduce top padding */
+.my-4:first-of-type {
   padding-top: 0.5rem !important;
 }
 
-/* Last comment - keep border for consistency */
-.comment:last-child,
-.comment-item:last-child,
-[class*="comment-item"]:last-child {
+/* Last comment - remove bottom border */
+.my-4:last-of-type {
+  border-bottom: none !important;
   padding-bottom: 0.5rem !important;
 }
 
-/* Additional separator enforcement */
-.comment::after,
-.comment-item::after,
-[class*="comment-item"]::after {
-  content: "" !important;
-  position: absolute !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 1px !important;
-  background: #e5e7eb !important;
+/* Nested replies - no separator on nested items */
+.my-4.pl-4.border-l-2 {
+  border-bottom: none !important;
+  padding-top: 1rem !important;
+  padding-bottom: 0.5rem !important;
 }
 
-.dark .comment::after,
-.dark .comment-item::after,
-.dark [class*="comment-item"]::after {
-  background: rgba(255, 255, 255, 0.15) !important;
-}
-
-/* Last item - remove double border */
-.comment:last-child::after,
-.comment-item:last-child::after,
-[class*="comment-item"]:last-child::after {
-  display: none !important;
-}
-
-/* Comment Header */
-.comment-header,
-[class*="comment-header"] {
-  margin-bottom: 0.75rem !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-}
-
-/* Author Name */
-.comment-author,
-[class*="author"],
-.nickname {
-  font-weight: 600 !important;
-  font-size: 0.9375rem !important;
-  color: #1e1e2e !important;
-}
-
-.dark .comment-author,
-.dark [class*="author"],
-.dark .nickname {
-  color: #cdd6f4 !important;
-}
-
-/* DATE - MUTED/LIGHTER COLOR */
-.comment-date,
-.comment-time,
-[class*="date"],
-[class*="time"],
-.created-at,
-time {
-  font-size: 0.8125rem !important;
-  color: #9ca3af !important;
-  font-weight: 400 !important;
-  opacity: 0.7 !important;
-}
-
-.dark .comment-date,
-.dark .comment-time,
-.dark [class*="date"],
-.dark [class*="time"],
-.dark .created-at,
-.dark time {
-  color: #6b7280 !important;
-  opacity: 0.6 !important;
-}
-
-/* Comment Content */
-.comment-content,
-.comment-body,
-[class*="content"],
-[class*="body"]:not(body) {
-  margin-top: 0.75rem !important;
-  margin-bottom: 0.75rem !important;
-  line-height: 1.7 !important;
-  color: #1e1e2e !important;
-  font-size: 0.9375rem !important;
-}
-
-.dark .comment-content,
-.dark .comment-body,
-.dark [class*="content"],
-.dark [class*="body"]:not(body) {
-  color: #cdd6f4 !important;
-}
-
-/* Nested Replies */
-.replies,
-[class*="replies"] {
+/* Add separator after reply form container */
+.mt-4.pl-4.border-l-2 {
   margin-top: 1rem !important;
-  margin-left: 2rem !important;
-  padding-left: 1rem !important;
-  border-left: 2px solid #e5e7eb !important;
-}
-
-.dark .replies,
-.dark [class*="replies"] {
-  border-left-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* ============================================
-   ADDITIONAL ELEMENTS
+   COMMENT TEXT STYLING
    ============================================ */
 
-/* Moderator Badge */
-.mod-badge,
-[class*="mod"],
-.admin-badge {
-  display: inline-block !important;
-  padding: 0.125rem 0.5rem !important;
-  background-color: #DD7F68 !important;
-  color: white !important;
-  font-size: 0.75rem !important;
-  border-radius: 0.25rem !important;
-  margin-left: 0.5rem !important;
-  font-weight: 500 !important;
+/* Date - muted/lighter */
+.text-gray-500.text-sm {
+  color: #9ca3af !important;
+  opacity: 0.75 !important;
+  font-size: 0.8125rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
-.dark .mod-badge,
-.dark [class*="mod"],
-.dark .admin-badge {
-  background-color: #89B4FA !important;
-  color: #1e1e2e !important;
+.dark .text-gray-500.text-sm {
+  color: #6b7280 !important;
+  opacity: 0.7 !important;
 }
 
-/* Loading State */
-.loading,
-[class*="loading"] {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 2rem !important;
-  color: #6c7086 !important;
+/* Comment content */
+.text-gray-500.my-2 {
+  margin-top: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.7 !important;
 }
 
-.dark .loading,
-.dark [class*="loading"] {
-  color: #a6adc8 !important;
+/* Author name */
+.font-medium {
+  font-weight: 600 !important;
 }
 
-/* Error Message */
-.error,
-[class*="error"] {
-  padding: 1rem !important;
-  background-color: rgba(239, 68, 68, 0.1) !important;
-  border: 1px solid rgba(239, 68, 68, 0.3) !important;
-  color: #dc2626 !important;
-  border-radius: 0.5rem !important;
-  margin-bottom: 1rem !important;
-}
-
-.dark .error,
-.dark [class*="error"] {
-  background-color: rgba(239, 68, 68, 0.15) !important;
-  border-color: rgba(239, 68, 68, 0.4) !important;
-  color: #f87171 !important;
-}
-
-/* Labels */
+/* ============================================
+   LABELS
+   ============================================ */
 label {
   display: block !important;
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.375rem !important;
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   color: #1e1e2e !important;
@@ -428,25 +293,33 @@ label {
   color: #cdd6f4 !important;
 }
 
-/* Body Adjustments */
-body { 
-  min-height: auto !important; 
-  overflow: visible !important; 
-  padding: 5px !important;
-  background-color: transparent !important;
+/* ============================================
+   MODERATOR BADGE
+   ============================================ */
+.bg-gray-200.text-xs {
+  background-color: #DD7F68 !important;
+  color: white !important;
+  padding: 0.125rem 0.5rem !important;
+  border-radius: 0.25rem !important;
+  font-weight: 500 !important;
 }
 
-html {
-  background-color: transparent !important;
+.dark .bg-gray-200.text-xs {
+  background-color: #89B4FA !important;
+  color: #1e1e2e !important;
 }
 
-/* Container - Force theme background */
-.container,
-[class*="container"]:not(.cusdis-container) {
-  background-color: transparent !important;
+/* ============================================
+   NESTED REPLY BORDERS
+   ============================================ */
+.border-l-2.border-color-gray-200,
+.border-l-2 {
+  border-left-width: 2px !important;
+  border-left-color: #e5e7eb !important;
+  padding-left: 1rem !important;
 }
 
-.dark .container,
-.dark [class*="container"]:not(.cusdis-container) {
-  background-color: transparent !important;
+.dark .border-l-2.border-color-gray-200,
+.dark .border-l-2 {
+  border-left-color: rgba(255, 255, 255, 0.1) !important;
 }
