@@ -164,3 +164,6 @@ db.sqlite
 public/js
 widget/index.html
 db.sqlite-journal
+
+
+.theme copy.css

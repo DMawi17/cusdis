@@ -21,7 +21,7 @@ blockquote { @apply px-4 py-2 bg-gray-100 my-4 dark:bg-gray-900; }
 }
 
 /* ============================================
-   BODY & CONTAINER - THEME BACKGROUNDS
+   TASK 1: BODY & CONTAINER - TRANSPARENT BACKGROUND
    ============================================ */
 body { 
   min-height: auto !important; 
@@ -34,12 +34,12 @@ html {
   background-color: transparent !important;
 }
 
-/* Light mode - match site background */
+/* Light mode - TRANSPARENT */
 body, html {
-  background-color: #ffffff !important;
+  background-color: transparent !important;
 }
 
-/* Dark mode - transparent to inherit */
+/* Dark mode - TRANSPARENT */
 .dark body,
 .dark html {
   background-color: transparent !important;
@@ -110,11 +110,13 @@ textarea:focus {
 }
 
 /* ============================================
-   SUBMIT BUTTON - "READ MORE" STYLE
+   TASK 2: SUBMIT BUTTON - RIGHT ALIGNED + CUSTOM COLORS
    ============================================ */
 /* Primary submit button - Match "ተጨማሪ ያንብቡ" button */
 button[type="submit"],
-form button:not([type="button"]) {
+form button:not([type="button"]),
+button.bg-blue-600,
+button.bg-blue-700 {
   display: inline-flex !important;
   height: 2.75rem !important;
   align-items: center !important;
@@ -135,27 +137,37 @@ form button:not([type="button"]) {
 }
 
 button[type="submit"]:hover,
-form button:not([type="button"]):hover {
+form button:not([type="button"]):hover,
+button.bg-blue-600:hover,
+button.bg-blue-700:hover {
   background-color: rgba(221, 127, 104, 0.9) !important;
   opacity: 1 !important;
 }
 
 button[type="submit"]:disabled,
-form button:not([type="button"]):disabled {
+form button:not([type="button"]):disabled,
+button.bg-blue-600:disabled,
+button.bg-blue-700:disabled {
   opacity: 0.6 !important;
   cursor: not-allowed !important;
 }
 
 /* Dark Mode Submit Button */
 .dark button[type="submit"],
-.dark form button:not([type="button"]) {
+.dark form button:not([type="button"]),
+.dark button.bg-blue-600,
+.dark button.bg-blue-700,
+.dark button.dark\:bg-blue-700,
+.dark button.dark\:bg-blue-800 {
   background-color: #89B4FA !important;
   color: #1e1e2e !important;
   box-shadow: 0 10px 15px -3px rgba(137, 180, 250, 0.25), 0 4px 6px -4px rgba(137, 180, 250, 0.25) !important;
 }
 
 .dark button[type="submit"]:hover,
-.dark form button:not([type="button"]):hover {
+.dark form button:not([type="button"]):hover,
+.dark button.bg-blue-600:hover,
+.dark button.bg-blue-700:hover {
   background-color: rgba(137, 180, 250, 0.9) !important;
 }
 
@@ -322,4 +334,37 @@ label {
 .dark .border-l-2.border-color-gray-200,
 .dark .border-l-2 {
   border-left-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ============================================
+   TASK 3: STATUS MESSAGE COLOR FIX
+   ============================================ */
+/* Target success/pending messages - "Wait for approval" etc */
+.cusdis-message,
+.message,
+[class*="message"],
+div[class*="success"],
+div[class*="pending"],
+div[class*="status"] {
+  color: #57949F !important;
+}
+
+/* Additional targeting for text color classes that might be blue */
+.text-blue-500,
+.text-blue-600,
+.text-blue-700 {
+  color: #57949F !important;
+}
+
+/* Dark mode status messages */
+.dark .cusdis-message,
+.dark .message,
+.dark [class*="message"],
+.dark div[class*="success"],
+.dark div[class*="pending"],
+.dark div[class*="status"],
+.dark .text-blue-500,
+.dark .text-blue-600,
+.dark .text-blue-700 {
+  color: #57949F !important;
 }
