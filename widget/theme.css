@@ -356,12 +356,31 @@ div[class*="success"],
 div[class*="pending"],
 div[class*="status"] {
   color: #57949F !important;
+  background-color: rgba(87, 148, 159, 0.1) !important;
+  border-color: #57949F !important;
+}
+
+/* Target the blue background message bar specifically */
+.bg-blue-500,
+.bg-blue-600,
+.bg-blue-700,
+div.bg-blue-500,
+div.bg-blue-600 {
+  background-color: rgba(87, 148, 159, 0.15) !important;
+  border-left: 4px solid #57949F !important;
+  color: #57949F !important;
 }
 
 /* Additional targeting for text color classes that might be blue */
 .text-blue-500,
 .text-blue-600,
 .text-blue-700 {
+  color: #57949F !important;
+}
+
+/* Target any element with blue background class */
+[class*="bg-blue"] {
+  background-color: rgba(87, 148, 159, 0.15) !important;
   color: #57949F !important;
 }
 
@@ -375,5 +394,17 @@ div[class*="status"] {
 .dark .text-blue-500,
 .dark .text-blue-600,
 .dark .text-blue-700 {
+  color: #57949F !important;
+  background-color: rgba(87, 148, 159, 0.15) !important;
+}
+
+.dark .bg-blue-500,
+.dark .bg-blue-600,
+.dark .bg-blue-700,
+.dark div.bg-blue-500,
+.dark div.bg-blue-600,
+.dark [class*="bg-blue"] {
+  background-color: rgba(87, 148, 159, 0.2) !important;
+  border-left: 4px solid #57949F !important;
   color: #57949F !important;
 }
