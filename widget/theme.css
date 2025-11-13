@@ -45,6 +45,15 @@ body, html {
   background-color: transparent !important;
 }
 
+/* Ensure all comment containers are transparent */
+#cusdis_thread,
+.cusdis,
+.cusdis-container,
+[id*="cusdis"],
+[class*="cusdis"] {
+  background-color: transparent !important;
+}
+
 /* ============================================
    FORM CONTAINER - NEWSLETTER STYLE
    ============================================ */
