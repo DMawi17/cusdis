@@ -84,13 +84,13 @@ form {
      resize: vertical !important;
    }
    
-   /* Input Focus - Primary Color Ring */
-   input[type="text"]:focus, 
-   input[type="email"]:focus, 
+   /* Input Focus - Border color change */
+   input[type="text"]:focus,
+   input[type="email"]:focus,
    textarea:focus {
      outline: none !important;
-     box-shadow: 0 0 0 2px #DD7F68 !important;
-     border-color: #DD7F68 !important;
+     box-shadow: none !important;
+     border-color: rgba(221, 127, 104, 0.5) !important;
    }
    
    /* Dark Mode Inputs */
@@ -102,11 +102,11 @@ form {
      color: #cdd6f4 !important;
    }
    
-   .dark input[type="text"]:focus, 
-   .dark input[type="email"]:focus, 
+   .dark input[type="text"]:focus,
+   .dark input[type="email"]:focus,
    .dark textarea:focus {
-     box-shadow: 0 0 0 2px #89B4FA !important;
-     border-color: #89B4FA !important;
+     box-shadow: none !important;
+     border-color: rgba(137, 180, 250, 0.5) !important;
    }
 
 /* ============================================
@@ -300,6 +300,11 @@ button:focus-visible {
 /* Author name */
 .font-medium {
   font-weight: 600 !important;
+  color: #565279 !important;
+}
+
+.dark .font-medium {
+  color: #cdd6f4 !important;
 }
 
 /* ============================================
