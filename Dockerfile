@@ -11,8 +11,8 @@ COPY package.json package-lock.json* yarn.lock* /app/
 
 WORKDIR /app
 
-# Use npm instead of yarn for better reliability
-RUN npm ci || npm install
+# Use npm install with legacy peer deps to handle React 18 compatibility
+RUN npm install --legacy-peer-deps
 RUN npm run build:without-migrate
 
 FROM node:16-alpine3.15 as runner
