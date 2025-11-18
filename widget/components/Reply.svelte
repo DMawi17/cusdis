@@ -63,7 +63,7 @@
       <label class="mb-1.5 block text-sm dark:text-gray-200" for="nickname">{t('nickname')}</label>
       <input
         name="nickname"
-        class="w-full p-2.5 border border-gray-300 bg-transparent dark:text-gray-100 dark:border-gray-600 dark:outline-none rounded-md"
+        class="w-full p-2.5 border border-gray-300 dark:text-gray-100 dark:border-gray-600 dark:outline-none rounded-md"
         type="text"
         title={t('nickname')}
         bind:value={nickname}
@@ -73,7 +73,7 @@
       <label class="mb-1.5 block text-sm dark:text-gray-200" for="email">{t('email')}</label>
       <input
         name="email"
-        class="w-full p-2.5 border border-gray-300 bg-transparent dark:text-gray-100 dark:border-gray-600 dark:outline-none rounded-md"
+        class="w-full p-2.5 border border-gray-300 dark:text-gray-100 dark:border-gray-600 dark:outline-none rounded-md"
         type="email"
         title={t('email')}
         bind:value={email}
@@ -85,7 +85,7 @@
     <label class="mb-1.5 block text-sm dark:text-gray-200" for="reply_content">{t('reply_placeholder')}</label>
     <textarea
       name="reply_content"
-      class="w-full p-2.5 border border-gray-300 h-28 bg-transparent dark:text-gray-100 dark:border-gray-600 dark:outline-none rounded-md resize-none"
+      class="w-full p-2.5 border border-gray-300 h-28 dark:text-gray-100 dark:border-gray-600 dark:outline-none rounded-md resize-none"
       title={t('reply_placeholder')}
       bind:value={content}
     />
