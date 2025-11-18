@@ -72,7 +72,7 @@ form {
      height: auto !important;
      padding: 0.625rem !important;
      border-radius: 0.5rem !important;
-     border: 1px solid #D4C5B9 !important;
+     border: 1px solid #DDD0C6 !important;
      background-color: rgba(255, 255, 255, 0.6) !important;
      font-size: 0.875rem !important;
      transition: all 0.2s ease !important;
@@ -98,7 +98,7 @@ form {
    .dark input[type="email"],
    .dark textarea {
      background-color: rgba(255, 255, 255, 0.05) !important;
-     border: 1px solid rgba(255, 255, 255, 0.2) !important;
+     border: 1px solid #1e293b !important;
      color: #cdd6f4 !important;
    }
    
