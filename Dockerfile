@@ -1,5 +1,6 @@
 FROM node:16-alpine3.15 as builder
 
+# Force rebuild - updated 2025-11-18
 ARG DB_TYPE=sqlite
 ENV DB_TYPE=$DB_TYPE
 
