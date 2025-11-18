@@ -66,6 +66,7 @@
         class="w-full p-2.5 border border-gray-300 dark:text-gray-100 dark:border-gray-600 dark:outline-none rounded-md"
         type="text"
         title={t('nickname')}
+        placeholder={t('nickname_placeholder')}
         bind:value={nickname}
       />
     </div>
@@ -76,17 +77,19 @@
         class="w-full p-2.5 border border-gray-300 dark:text-gray-100 dark:border-gray-600 dark:outline-none rounded-md"
         type="email"
         title={t('email')}
+        placeholder={t('email_placeholder')}
         bind:value={email}
       />
     </div>
   </div>
 
   <div>
-    <label class="mb-1.5 block text-sm dark:text-gray-200" for="reply_content">{t('reply_placeholder')}</label>
+    <label class="mb-1.5 block text-sm dark:text-gray-200" for="reply_content">{t('comment_label')}</label>
     <textarea
       name="reply_content"
       class="w-full p-2.5 border border-gray-300 h-28 dark:text-gray-100 dark:border-gray-600 dark:outline-none rounded-md resize-none"
-      title={t('reply_placeholder')}
+      title={t('comment_label')}
+      placeholder={t('comment_placeholder')}
       bind:value={content}
     />
   </div>
