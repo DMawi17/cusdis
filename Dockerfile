@@ -7,11 +7,12 @@ RUN apk add --no-cache python3 py3-pip make gcc g++
 
 COPY . /app
 
-COPY package.json yarn.lock /app/
+COPY package.json package-lock.json* yarn.lock* /app/
 
 WORKDIR /app
 
-RUN yarn install
+# Use npm instead of yarn for better reliability
+RUN npm ci || npm install
 RUN npm run build:without-migrate
 
 FROM node:16-alpine3.15 as runner
