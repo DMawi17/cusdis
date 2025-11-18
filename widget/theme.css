@@ -209,6 +209,18 @@ button[type="button"]:hover,
   opacity: 1 !important;
 }
 
+button[type="button"]:focus,
+.reply-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove focus outline from all buttons */
+button:focus,
+button:focus-visible {
+  outline: none !important;
+}
+
 .dark button[type="button"],
 .dark .reply-button {
   color: #89B4FA !important;
@@ -227,7 +239,7 @@ button[type="button"]:hover,
 .my-4 {
   padding-top: 1.5rem !important;
   padding-bottom: 1.5rem !important;
-  border-bottom: 1px solid #e5e7eb !important;
+  border-bottom: 1px solid #D4C5B9 !important;
   margin-bottom: 0 !important;
   margin-top: 0 !important;
 }
@@ -327,7 +339,7 @@ label {
 .border-l-2.border-color-gray-200,
 .border-l-2 {
   border-left-width: 2px !important;
-  border-left-color: #e5e7eb !important;
+  border-left-color: #D4C5B9 !important;
   padding-left: 1rem !important;
 }
 
