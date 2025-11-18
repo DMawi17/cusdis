@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cusdis Form Theme Demo</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: #EEE6DD;
+      padding: 40px 20px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    body.dark {
+      background-color: #1e1e2e;
+    }
+
+    .page-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark .page-container {
+      background: #2a2a3e;
+    }
+
+    h1 {
+      color: #1e1e2e;
+      margin-bottom: 12px;
+      font-size: 2rem;
+    }
+
+    body.dark h1 {
+      color: #cdd6f4;
+    }
+
+    .meta {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    body.dark .meta {
+      color: #9399b2;
+    }
+
+    .content {
+      color: #333;
+      margin-bottom: 48px;
+      font-size: 1.05rem;
+    }
+
+    body.dark .content {
+      color: #cdd6f4;
+    }
+
+    .content p {
+      margin-bottom: 16px;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #DD7F68;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(221, 127, 104, 0.3);
+      z-index: 1000;
+    }
+
+    .theme-toggle:hover {
+      background: #C96D58;
+    }
+
+    body.dark .theme-toggle {
+      background: #89B4FA;
+      color: #1e1e2e;
+    }
+
+    body.dark .theme-toggle:hover {
+      background: #7AA3E8;
+    }
+
+    h2 {
+      margin-bottom: 24px;
+      color: #1e1e2e;
+      font-size: 1.5rem;
+    }
+
+    body.dark h2 {
+      color: #cdd6f4;
+    }
+
+    .demo-section {
+      margin-bottom: 48px;
+    }
+
+    /* Grid system for form */
+    .grid {
+      display: grid;
+    }
+
+    .grid-cols-1 {
+      grid-template-columns: 1fr;
+    }
+
+    .grid-cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gap-3 {
+      gap: 0.75rem;
+    }
+
+    /* Sample comment styles */
+    .comment-list {
+      margin-top: 32px;
+    }
+
+    .comment {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    body.dark .comment {
+      border-bottom-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .comment:first-child {
+      padding-top: 0.5rem;
+    }
+
+    .comment:last-child {
+      border-bottom: none;
+      padding-bottom: 0.5rem;
+    }
+
+    .comment-author {
+      font-weight: 600;
+      color: #1e1e2e;
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    body.dark .comment-author {
+      color: #cdd6f4;
+    }
+
+    .comment-date {
+      color: #9ca3af;
+      opacity: 0.75;
+      font-size: 0.8125rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    body.dark .comment-date {
+      color: #6b7280;
+      opacity: 0.7;
+    }
+
+    .comment-content {
+      margin-top: 0.75rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    body.dark .comment-content {
+      color: #cdd6f4;
+    }
+
+    .reply-btn {
+      background: none !important;
+      border: none !important;
+      padding: 0.25rem 0 !important;
+      margin-top: 0.75rem !important;
+      font-size: 0.875rem !important;
+      font-weight: 500 !important;
+      color: #DD7F68 !important;
+      cursor: pointer !important;
+      transition: color 0.2s ease !important;
+    }
+
+    .reply-btn:hover {
+      color: #C96D58 !important;
+    }
+
+    body.dark .reply-btn {
+      color: #89B4FA !important;
+    }
+
+    body.dark .reply-btn:hover {
+      color: #7AA3E8 !important;
+    }
+
+    /* Success message */
+    .success-message {
+      background: linear-gradient(135deg, rgba(221, 127, 104, 0.08) 0%, rgba(221, 127, 104, 0.12) 100%);
+      border: 1px solid rgba(221, 127, 104, 0.3);
+      border-left: 4px solid #DD7F68;
+      color: #57949F;
+      padding: 1rem 1.25rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    body.dark .success-message {
+      background: linear-gradient(135deg, rgba(137, 180, 250, 0.05) 0%, rgba(137, 180, 250, 0.1) 100%);
+      border: 1px solid rgba(137, 180, 250, 0.2);
+      border-left: 4px solid #89B4FA;
+      color: #89B4FA;
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+
+  <div class="page-container">
+    <article>
+      <h1>Cusdis Form Theme Demo</h1>
+      <div class="meta">
+        November 18, 2025 • Custom Widget Styling Test
+      </div>
+      <div class="content">
+        <p>
+          This demo showcases your custom Cusdis widget styling with the beige/taupe theme.
+        </p>
+        <ul style="margin-left: 24px; margin-bottom: 16px;">
+          <li>✓ Warm taupe borders (#D4C5B9)</li>
+          <li>✓ Semi-transparent white input backgrounds</li>
+          <li>✓ Beige gradient form container</li>
+          <li>✓ Salmon/coral accent (#DD7F68) for focus & buttons</li>
+          <li>✓ Dark mode support with blue accents (#89B4FA)</li>
+        </ul>
+        <p>
+          Try clicking inside the form inputs to see the focus states, and toggle dark mode
+          using the button in the top-right corner!
+        </p>
+      </div>
+    </article>
+
+    <div class="demo-section">
+      <h2>Comment Form</h2>
+
+      <div id="successMessage" class="success-message">
+        ✓ Your comment has been submitted and is awaiting approval!
+      </div>
+
+      <form onsubmit="handleSubmit(event)">
+        <div class="grid grid-cols-1 gap-3">
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="nickname">Your Name</label>
+              <input
+                type="text"
+                id="nickname"
+                name="nickname"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div>
+              <label for="email">Email (optional)</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your@email.com"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="comment">Your Comment</label>
+            <textarea
+              id="comment"
+              name="comment"
+              placeholder="Share your thoughts..."
+              required
+            ></textarea>
+          </div>
+
+          <div>
+            <button type="submit">Post Comment</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="demo-section comment-list">
+      <h2>Sample Comments</h2>
+
+      <div class="comment">
+        <div>
+          <span class="comment-author">Sarah Johnson</span>
+        </div>
+        <div class="comment-date">2 hours ago</div>
+        <div class="comment-content">
+          This is exactly what I was looking for! The styling looks beautiful and matches
+          perfectly with the website's design. Great work!
+        </div>
+        <button type="button" class="reply-btn">Reply</button>
+      </div>
+
+      <div class="comment">
+        <div>
+          <span class="comment-author">Mike Chen</span>
+        </div>
+        <div class="comment-date">5 hours ago</div>
+        <div class="comment-content">
+          Love the warm color palette. The focus states are really nice and the form
+          feels very cohesive with the rest of the page.
+        </div>
+        <button type="button" class="reply-btn">Reply</button>
+      </div>
+
+      <div class="comment">
+        <div>
+          <span class="comment-author">Emma Wilson</span>
+        </div>
+        <div class="comment-date">1 day ago</div>
+        <div class="comment-content">
+          The dark mode looks fantastic! I appreciate the attention to detail with
+          the different accent colors for light and dark themes.
+        </div>
+        <button type="button" class="reply-btn">Reply</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      // Show success message
+      const successMessage = document.getElementById('successMessage');
+      successMessage.classList.add('show');
+
+      // Reset form
+      event.target.reset();
+
+      // Hide message after 5 seconds
+      setTimeout(() => {
+        successMessage.classList.remove('show');
+      }, 5000);
+    }
+
+    // Load saved theme preference
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark');
+      }
+    });
+  </script>
+</body>
+</html>
