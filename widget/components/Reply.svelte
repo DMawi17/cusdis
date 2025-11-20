@@ -2,6 +2,8 @@
   import { getContext } from 'svelte'
   import { t } from '../i18n'
   export let parentId
+  export let message = ''
+  export let messageType = 'error'
 
   // form data
   let content = ''
@@ -19,12 +21,12 @@
 
   async function addComment() {
     if (!content) {
-      setMessage(t('content_is_required'))
+      setMessage(t('content_is_required') + '!', 'error')
       return
     }
 
     if (!nickname) {
-      setMessage(t('nickname_is_required'))
+      setMessage(t('nickname_is_required') + '!', 'error')
       return
     }
 
@@ -42,7 +44,7 @@
       })
       await refresh()
       teardown()
-      setMessage(t('comment_has_been_sent'))
+      setMessage(t('comment_has_been_sent'), 'success')
     } finally {
       loading = false
     }
@@ -91,13 +93,18 @@
     />
   </div>
 
-  <div>
+  <div style="display: flex; align-items: center; gap: 1rem; min-height: 44px;">
     <button
       type="submit"
       class:cusdis-disabled={loading}
       disabled={loading}
       on:click={addComment}>{loading ? t('sending') : t('post_comment')}</button
     >
+    {#if message}
+      <span class="text-sm" style="color: {messageType === 'success' ? '#16a34a' : '#dc2626'}; flex: 1;">
+        {message}
+      </span>
+    {/if}
   </div>
 </div>
 

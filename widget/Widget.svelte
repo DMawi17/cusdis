@@ -14,6 +14,7 @@
   let loadingComments = true
 
   let message = ''
+  let messageType = 'error' // 'error' or 'success'
 
   let error
 
@@ -23,8 +24,14 @@
     baseURL: attrs.host,
   })
 
-  function setMessage(msg) {
+  function setMessage(msg, type = 'error') {
     message = msg
+    messageType = type
+
+    // Auto-clear message after 5 seconds
+    setTimeout(() => {
+      message = ''
+    }, 5000)
   }
 
   $: {
@@ -93,16 +100,7 @@
 
 {#if !error}
   <div class:dark={theme === 'dark'}>
-    <Reply />
-
-    <!-- Fixed height message container below form - matches newsletter style -->
-    <div style="height: 28px; margin-top: 0.5rem;">
-      {#if message}
-        <p class="text-sm" style="line-height: 28px; color: #57949F;">
-          {message}
-        </p>
-      {/if}
-    </div>
+    <Reply {message} {messageType} />
 
     <div class="my-8" />
 
