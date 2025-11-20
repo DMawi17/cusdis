@@ -1,5 +1,5 @@
 <script>
-  import { getContext } from 'svelte'
+  import { getContext, onDestroy } from 'svelte'
   import { t } from '../i18n'
   export let parentId
   export let message = ''
@@ -11,6 +11,7 @@
   let email = ''
 
   let loading = false
+  let messageTimeout = null
 
   export let onSuccess
 
@@ -19,14 +20,29 @@
   const { appId, pageId, pageUrl, pageTitle } = getContext('attrs')
   const refresh = getContext('refresh')
 
+  // Clear message after 5 seconds
+  function showTemporaryMessage(msg, type) {
+    setMessage(msg, type)
+
+    // Clear any existing timeout
+    if (messageTimeout) {
+      clearTimeout(messageTimeout)
+    }
+
+    // Set new timeout to clear message after 5 seconds
+    messageTimeout = setTimeout(() => {
+      setMessage('', 'error')
+    }, 5000)
+  }
+
   async function addComment() {
     if (!content) {
-      setMessage(t('content_is_required') + '!', 'error')
+      showTemporaryMessage(t('content_is_required') + '!', 'error')
       return
     }
 
     if (!nickname) {
-      setMessage(t('nickname_is_required') + '!', 'error')
+      showTemporaryMessage(t('nickname_is_required') + '!', 'error')
       return
     }
 
@@ -44,7 +60,7 @@
       })
       await refresh()
       teardown()
-      setMessage(t('comment_has_been_sent'), 'success')
+      showTemporaryMessage(t('comment_has_been_sent'), 'success')
     } finally {
       loading = false
     }
@@ -56,6 +72,13 @@
     email = ''
     onSuccess && onSuccess()
   }
+
+  // Cleanup timeout on component destroy
+  onDestroy(() => {
+    if (messageTimeout) {
+      clearTimeout(messageTimeout)
+    }
+  })
 
 </script>
 
