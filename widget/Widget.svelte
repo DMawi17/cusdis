@@ -93,15 +93,16 @@
 
 {#if !error}
   <div class:dark={theme === 'dark'}>
-    <div class="mb-4" style="min-height: 56px;">
+    <Reply />
+
+    <!-- Fixed height message container below form - matches newsletter style -->
+    <div style="height: 28px; margin-top: 0.5rem;">
       {#if message}
-        <div class="p-2 bg-blue-500 text-white">
+        <p class="text-sm" style="line-height: 28px; color: #57949F;">
           {message}
-        </div>
+        </p>
       {/if}
     </div>
-
-    <Reply />
 
     <div class="my-8" />
 
