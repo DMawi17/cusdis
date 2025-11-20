@@ -93,11 +93,13 @@
 
 {#if !error}
   <div class:dark={theme === 'dark'}>
-    {#if message}
-      <div class="p-2 mb-4 bg-blue-500 text-white">
-        {message}
-      </div>
-    {/if}
+    <div class="mb-4" style="min-height: 56px;">
+      {#if message}
+        <div class="p-2 bg-blue-500 text-white">
+          {message}
+        </div>
+      {/if}
+    </div>
 
     <Reply />
 
