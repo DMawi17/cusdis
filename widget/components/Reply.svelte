@@ -123,11 +123,9 @@
       disabled={loading}
       on:click={addComment}>{loading ? t('sending') : t('post_comment')}</button
     >
-    {#if message}
-      <span class="text-sm" style="color: {messageType === 'success' ? '#16a34a' : '#dc2626'}; flex: 1;">
-        {message}
-      </span>
-    {/if}
+    <span class="text-sm" style="color: {messageType === 'success' ? '#16a34a' : '#dc2626'}; flex: 1; min-height: 1.25rem;">
+      {message || ''}
+    </span>
   </div>
 </div>
 

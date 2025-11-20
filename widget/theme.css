@@ -134,8 +134,8 @@ button.bg-blue-700 {
   cursor: pointer !important;
   box-shadow: 0 10px 15px -3px rgba(221, 127, 104, 0.25), 0 4px 6px -4px rgba(221, 127, 104, 0.25) !important;
   margin-left: auto !important;
-  float: right !important;
   white-space: nowrap !important;
+  flex-shrink: 0 !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
 }
@@ -175,13 +175,7 @@ button.bg-blue-700:disabled {
   background-color: rgba(137, 180, 250, 0.9) !important;
 }
 
-/* Clear float after button */
-form > div:last-child::after,
-form::after {
-  content: "";
-  display: table;
-  clear: both;
-}
+/* Removed float clearfix - no longer needed */
 
 /* ============================================
    REPLY BUTTON (መልስ) - TEXT LINK STYLE
