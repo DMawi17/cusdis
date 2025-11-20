@@ -19,12 +19,12 @@
 
   async function addComment() {
     if (!content) {
-      alert(t('content_is_required'))
+      setMessage(t('content_is_required'))
       return
     }
 
     if (!nickname) {
-      alert(t('nickname_is_required'))
+      setMessage(t('nickname_is_required'))
       return
     }
 
