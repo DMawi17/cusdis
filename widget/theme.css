@@ -407,6 +407,9 @@ div.bg-blue-600,
   padding: 1rem 1.25rem !important;
   border-radius: 0.5rem !important;
   overflow: hidden !important;
+  min-height: 3.5rem !important;
+  display: flex !important;
+  align-items: center !important;
 }
 
 /* Text color for status messages */
