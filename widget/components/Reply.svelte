@@ -117,15 +117,15 @@
   </div>
 
   <div style="display: flex; align-items: center; gap: 1rem; min-height: 44px;">
+    <span class="text-sm" style="color: {messageType === 'success' ? '#16a34a' : '#dc2626'}; flex: 1; min-height: 1.25rem;">
+      {message || ''}
+    </span>
     <button
       type="submit"
       class:cusdis-disabled={loading}
       disabled={loading}
       on:click={addComment}>{loading ? t('sending') : t('post_comment')}</button
     >
-    <span class="text-sm" style="color: {messageType === 'success' ? '#16a34a' : '#dc2626'}; flex: 1; min-height: 1.25rem;">
-      {message || ''}
-    </span>
   </div>
 </div>
 

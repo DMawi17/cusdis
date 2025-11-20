@@ -133,7 +133,6 @@ button.bg-blue-700 {
   border: none !important;
   cursor: pointer !important;
   box-shadow: 0 10px 15px -3px rgba(221, 127, 104, 0.25), 0 4px 6px -4px rgba(221, 127, 104, 0.25) !important;
-  margin-left: auto !important;
   white-space: nowrap !important;
   flex-shrink: 0 !important;
   overflow: hidden !important;
