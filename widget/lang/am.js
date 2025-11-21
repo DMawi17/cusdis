@@ -4,7 +4,7 @@ export default {
   loading: 'በመጫን ላይ',
 
   // Labels
-  email: 'ኢሜል',
+  email: 'ኢሜል (ግዴታ አይደለም)',
   nickname: 'ስም',
   comment_label: 'አስተያየት',
 
